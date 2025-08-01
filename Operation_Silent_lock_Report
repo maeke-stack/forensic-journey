@@ -1,0 +1,39 @@
+# FORENSIC INVESTIGATION REPORT
+**Case**: Operation Silent Lock  
+**Analyst**: Maeke Damris
+**Date**: April 5, 2025  
+**Client**: NexaTech Ltd.
+
+## 1. Executive Summary
+A ransomware attack on April 2, 2025, encrypted critical files across NexaTech. The attacker gained access via a phishing email, escalated to domain admin, and deployed encryption. No data exfiltration confirmed, but double extortion is suspected.
+
+## 2. Key Findings
+- Initial Access: Phishing email with `Invoice.zip`
+- Execution: `Invoice.pdf.exe` run on Alice’s machine
+- Lateral Movement: RDP login to domain controller from `185.130.104.221`
+- Encryption: Began at 2025-04-02 21:50:18
+- Ransom Note: Deployed to all systems
+
+## 3. Indicators of Compromise (IOCs)
+| Type | Value |
+|------|-------|
+| Email | accounts@nexa-invoice.com |
+| Attachment | Invoice.zip (SHA256: a1b2c3d4...) |
+| Malicious File | Invoice.pdf.exe |
+| C2 Domain | x3k9m2a5n8p7d.onion |
+| Bitcoin Address | bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh |
+| Attacker IP | 185.130.104.221 |
+
+## 4. Attack Timeline
+- 2025-04-01 09:15 → Phishing email sent
+- 2025-04-01 10:23 → Malware downloaded
+- 2025-04-02 21:45 → RDP access to domain controller
+- 2025-04-02 21:50 → Encryption begins
+- 2025-04-02 21:52 → Ransom note deployed
+
+## 5. Recommendations
+1. Isolate and rebuild infected systems.
+2. Block IOCs at firewall and email gateway.
+3. Implement MFA for RDP and admin accounts.
+4. Train staff on phishing detection.
+5. Restore from clean backups.
